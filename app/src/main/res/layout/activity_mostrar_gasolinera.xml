@@ -24,10 +24,12 @@
             >
 
             <TextView
+                android:id="@+id/titulo_barra"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="20dp"
                 android:textColor="#fff"
-                android:text="COPEC"/>
+                android:text="FULLFUEL -"/>
 
 
         </androidx.appcompat.widget.Toolbar>
@@ -462,6 +464,7 @@
                     android:textSize="14sp" />
 
                 <TextView
+                    android:id="@+id/precio_93"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -496,6 +499,7 @@
                     android:textSize="14sp" />
 
                 <TextView
+                    android:id="@+id/precio_95"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -529,6 +533,7 @@
                     android:textSize="14sp" />
 
                 <TextView
+                    android:id="@+id/precio_97"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -562,6 +567,7 @@
                     android:textSize="14sp" />
 
                 <TextView
+                    android:id="@+id/precio_diesel"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -595,6 +601,7 @@
                     android:textSize="14sp" />
 
                 <TextView
+                    android:id="@+id/precio_glp"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -613,6 +620,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
+            android:layout_marginBottom="50dp"
             android:orientation="vertical">
 
 
@@ -627,6 +635,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="#E91E63"
                 android:text="Servicios"
                 android:textSize="18sp" />
 
@@ -660,6 +670,22 @@
                     android:text="  Tienda"
                     android:textSize="14sp" />
 
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/tienda"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:src="@drawable/ic_verdadero" />
+                </LinearLayout>
+
             </LinearLayout>
 
             <!-- Farmacia-->
@@ -683,11 +709,27 @@
                     android:text="  Farmacia"
                     android:textSize="14sp" />
 
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/farmacia"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:src="@drawable/ic_verdadero" />
+                </LinearLayout>
+
             </LinearLayout>
 
-            <!-- Servicio Técnico-->
+            <!-- Mantencion-->
             <LinearLayout
-                android:id="@+id/layout_servicio_tecnico"
+                android:id="@+id/layout_mantencion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -705,6 +747,22 @@
                     android:layout_gravity="center"
                     android:text="  Servicio Técnico"
                     android:textSize="14sp" />
+
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/mantencion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:src="@drawable/ic_verdadero" />
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -728,6 +786,22 @@
                     android:layout_gravity="center"
                     android:text="  Autoservicio"
                     android:textSize="14sp" />
+
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/autoservicio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:src="@drawable/ic_verdadero" />
+                </LinearLayout>
 
             </LinearLayout>
 

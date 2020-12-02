@@ -208,7 +208,6 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onFailure(Call<ResponseData> call, Throwable t) {
-                //razon_social.setText("fallo " + t.getMessage());
 
             }
         });

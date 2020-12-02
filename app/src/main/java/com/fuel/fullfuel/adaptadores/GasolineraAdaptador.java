@@ -1,12 +1,7 @@
 package com.fuel.fullfuel.adaptadores;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.content.ContentValues;
 import android.content.Context;
-;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,21 +9,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
-
-/*import com.Desampara2.desamparados.Activity.DetalleAvisos;
-import com.Desampara2.desamparados.Clases.Aviso;
-import com.Desampara2.desamparados.DbHelper;
-import com.Desampara2.desamparados.R;*/
 import com.fuel.fullfuel.MostrarGasolinera;
 import com.fuel.fullfuel.R;
 import com.fuel.fullfuel.clases.Gasolinera;
 import com.squareup.picasso.Picasso;
-
-/*import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.squareup.picasso.Picasso;*/
 
 import java.util.ArrayList;
 
@@ -145,6 +129,12 @@ public class GasolineraAdaptador extends RecyclerView.Adapter<GasolineraAdaptado
                 i.putExtra("gasolina_97",  gasolinera.getPrecios().getGasolina_97());
                 i.putExtra("pretroleo_diesel", gasolinera.getPrecios().getPetroleo_diesel());
                 i.putExtra("glp_vehicular", gasolinera.getPrecios().getGlp_vehicular());
+
+                //servicios
+                i.putExtra("tienda", gasolinera.getServicios().getTienda());
+                i.putExtra("farmacia",  gasolinera.getServicios().getFarmacia());
+                i.putExtra("mantencion",  gasolinera.getServicios().getMantencion());
+                i.putExtra("autoservicio", gasolinera.getServicios().getAutoservicio());
 
 
                 //i.putExtra("imagen_firebase", gasolinera.getImage_firebase());
