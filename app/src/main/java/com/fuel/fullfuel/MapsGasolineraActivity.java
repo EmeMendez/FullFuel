@@ -3,6 +3,8 @@ package com.fuel.fullfuel;
 import androidx.fragment.app.FragmentActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +16,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -48,14 +51,22 @@ public class MapsGasolineraActivity extends FragmentActivity implements OnMapRea
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-
         ArrayList<Gasolinera> gasolineras = HomeFragment.gasolineras;
+        String id = (String) getIntent().getSerializableExtra("id");
 
+        Double latitud = (Double) getIntent().getSerializableExtra("latitud");
+        Double longitud = (Double) getIntent().getSerializableExtra("longitud");
 
+        int icono = R.drawable.marcador_rojo;
         for(int i = 0 ; i < gasolineras.size() ; i++) {
-
+            if(gasolineras.get(i).getId().equalsIgnoreCase(id)){
+                System.out.println(id);
+                icono = R.drawable.marcador_verde;
+            }else{
+                icono = R.drawable.marcador_rojo;
+            }
            // createMarker(gasolineras.get(i).getUbicacion().getLatitud(), gasolineras.get(i).getUbicacion().getLongitud(), markersArray.get(i).getTitle(), markersArray.get(i).getSnippet(), markersArray.get(i).getIconResID());
-            createMarker(gasolineras.get(i).getUbicacion().getLatitud(), gasolineras.get(i).getUbicacion().getLongitud(), gasolineras.get(i).getDistribuidor().getNombre(), "", 1);
+            createMarker(gasolineras.get(i).getUbicacion().getLatitud(), gasolineras.get(i).getUbicacion().getLongitud(), gasolineras.get(i).getDistribuidor().getNombre(), "", icono);
 
         }
 
@@ -69,21 +80,26 @@ public class MapsGasolineraActivity extends FragmentActivity implements OnMapRea
        //-- mMap.moveCamera(CameraUpdateFactory.newLatLng(marcador));
 
 
-        LatLng laserena = new LatLng(-29.90453, -71.24894);
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(laserena, 13.0f));
+        LatLng foco_gasolinera = new LatLng(latitud, longitud);
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(foco_gasolinera, 13.0f));
 
     }
 
 
 
-    protected Marker createMarker(double latitude, double longitude, String title, String snippet, int iconResID) {
-
+    protected Marker createMarker(double latitude, double longitude, String title, String snippet, int icono) {
         return mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(latitude, longitude))
                 //.anchor(0.5f, 0.5f)
                 .title(title)
+                .icon(BitmapDescriptorFactory.fromResource(icono))
                 .snippet(snippet));
-                //.icon(BitmapDescriptorFactory.fromResource(iconResID)));
+
+    }
+    public Bitmap resizeMapIcons(String iconName, int width, int height){
+        Bitmap imageBitmap = BitmapFactory.decodeResource(getResources(),getResources().getIdentifier(iconName, "drawable", getPackageName()));
+        Bitmap resizedBitmap = Bitmap.createScaledBitmap(imageBitmap, width, height, false);
+        return resizedBitmap;
     }
 
 }

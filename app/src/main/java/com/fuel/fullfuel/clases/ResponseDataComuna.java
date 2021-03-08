@@ -2,11 +2,10 @@ package com.fuel.fullfuel.clases;
 
 import java.util.List;
 
-public class ResponseData {
+public class ResponseDataComuna {
     private String estado;
     private String descripcion;
-    private List<Gasolinera> data;
-    private List<Comunas> data_comunas;
+    private List<Comunas> data;
 
     public String getEstado() {
         return estado;
@@ -24,19 +23,13 @@ public class ResponseData {
         this.descripcion = descripcion;
     }
 
-    public List<Gasolinera> getData() {
+    public List<Comunas> getData() {
         return data;
     }
 
-    public void setData(List<Gasolinera> data) {
+    public void setData(List<Comunas> data) {
         this.data = data;
     }
 
-    public List<Comunas> getData_comunas() {
-        return data_comunas;
-    }
 
-    public void setData_comunas(List<Comunas> data_comunas) {
-        this.data_comunas = data_comunas;
-    }
 }

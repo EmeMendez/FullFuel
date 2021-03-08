@@ -67,10 +67,10 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ciudad" />
+            android:text="Comuna" />
 
         <Spinner
-            android:id="@+id/spinner_ciudad"
+            android:id="@+id/spinner_comuna"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

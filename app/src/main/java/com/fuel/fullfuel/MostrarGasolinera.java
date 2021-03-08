@@ -47,7 +47,10 @@ public class MostrarGasolinera extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mostrar_gasolinera);
+        final String id = (String) getIntent().getSerializableExtra("id");
         final String nombre = (String) getIntent().getSerializableExtra("nombre");
+        final Double latitud = (Double) getIntent().getSerializableExtra("latitud");
+        final Double longitud = (Double) getIntent().getSerializableExtra("longitud");
 
         this.nombre = (TextView) findViewById(R.id.nombre);
         this.nombre.setText(nombre);
@@ -87,7 +90,10 @@ public class MostrarGasolinera extends Activity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), MapsGasolineraActivity.class);
+                i.putExtra("id", id);
                 i.putExtra("nombre", nombre);
+                i.putExtra("latitud", latitud);
+                i.putExtra("longitud", longitud);
                 startActivity(i);
             }
         });

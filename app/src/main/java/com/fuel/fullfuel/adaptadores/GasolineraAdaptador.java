@@ -21,8 +21,7 @@ public class GasolineraAdaptador extends RecyclerView.Adapter<GasolineraAdaptado
     private ArrayList<Gasolinera> gasolineras;
     private View.OnClickListener click;
     private Context context;
-    //private DbHelper helper;
-    //private SQLiteDatabase db;
+
 
     public GasolineraAdaptador(Context context, ArrayList<Gasolinera> gasolineras) {
         this.gasolineras = gasolineras;
@@ -32,7 +31,6 @@ public class GasolineraAdaptador extends RecyclerView.Adapter<GasolineraAdaptado
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        //CONECTA LA CLASE ADAPTADOR CON EL LAYOUT list_avisos
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_lista_gasolinera, null, false);
         view.setOnClickListener(this);
@@ -46,7 +44,6 @@ public class GasolineraAdaptador extends RecyclerView.Adapter<GasolineraAdaptado
         holder.tipoAviso.setText(gasolineras.get(position).getNombre_comuna());
         holder.Descripcion.setText(gasolineras.get(position).getRazon_social());
         Picasso.get().load(gasolineras.get(position).getDistribuidor().getLogo()).into(holder.imagen);
-        //Picasso.get().load(gasolineras.get(position).getImage_firebase()).into(holder.imagen);
 
 
         if(gasolineras.get(position).getPrecios().getGasolina_93() == null){
@@ -87,21 +84,14 @@ public class GasolineraAdaptador extends RecyclerView.Adapter<GasolineraAdaptado
 
 
 
-        /*holder.precio_95.setText("$ " + gasolineras.get(position).getPrecios().getGasolina_95());
-        holder.precio_97.setText("$ " + gasolineras.get(position).getPrecios().getGasolina_97());
-        holder.precio_diesel.setText("$ " + gasolineras.get(position).getPrecios().getPetroleo_diesel());
-        holder.precio_glp.setText("$ " + gasolineras.get(position).getPrecios().getGlp_vehicular()); */
-
-        //GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(context);
-
-
-
 
         holder.layout.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(context, MostrarGasolinera.class);
+                i.putExtra("id", gasolinera.getId());
+
                 i.putExtra("nombre", gasolinera.getDistribuidor().getNombre());
 
                 //ubicacion
@@ -136,15 +126,6 @@ public class GasolineraAdaptador extends RecyclerView.Adapter<GasolineraAdaptado
                 i.putExtra("mantencion",  gasolinera.getServicios().getMantencion());
                 i.putExtra("autoservicio", gasolinera.getServicios().getAutoservicio());
 
-
-                //i.putExtra("imagen_firebase", gasolinera.getImage_firebase());
-                //i.putExtra("direccion", gasolinera.getDireccion());
-                //i.putExtra("estado", String.valueOf(gasolinera.getEstado()));
-                //i.putExtra("tipo_aviso", gasolinera.getTipoAviso().getNombre());
-                //i.putExtra("tipo_mascota", gasolinera.getTipoMascota().getNombre());
-
-
-                //i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(i);
             }
 
@@ -155,10 +136,8 @@ public class GasolineraAdaptador extends RecyclerView.Adapter<GasolineraAdaptado
 
     @Override
     public int getItemCount() {
-        //TOMA EL TAMAÑO DE LA LISTA
         return gasolineras.size();
     }
-    //PARA HACER CLICK
     public void setOnClickListener(View.OnClickListener click){
         this.click = click;
     }
